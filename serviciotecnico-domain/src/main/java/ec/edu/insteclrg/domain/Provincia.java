@@ -8,18 +8,16 @@ import javax.persistence.Id;
 
 import lombok.Getter;
 import lombok.Setter;
+
 @Getter
 @Setter
 @Entity
-
 public class Provincia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
-	private long id;
-	
+	private Long id;
+
 	@Column(nullable = false)
-	private String nombre; 
+	private String nombre;
 }
-
-
