@@ -23,6 +23,6 @@ public class ClienteDTO {
 
 	private String estado;
 	
-	private long idTipoCliente;
+	private TipoClienteDTO tipoClienteDTO;
 
 }
