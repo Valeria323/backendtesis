@@ -12,7 +12,7 @@ public class Tecnico {
 	private long id;
 	
 	@Column(nullable = false, unique = true)
-    private Provincia cedula;
+    private long cedula;
 	
 	@Column(nullable = false)
 	private String nombre; 
