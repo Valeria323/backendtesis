@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -28,10 +30,11 @@ public class Empresa {
 	@Column(nullable = false)
 	private String address;
 	
-	/*@ManyToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "cityID")
-	private Ciudad city;*/
 	
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "ciudad_id")
+	private Ciudad ciudad;
+
 	@Column(nullable = false)
 	private String phone;
 	
