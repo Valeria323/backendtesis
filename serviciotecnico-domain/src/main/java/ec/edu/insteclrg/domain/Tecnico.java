@@ -1,10 +1,18 @@
 package ec.edu.insteclrg.domain;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+import lombok.Getter;
+import lombok.Setter;
+@Getter
+@Setter
+@Entity
 public class Tecnico {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,5 +38,8 @@ public class Tecnico {
     private String direccion;
 	
 	
-	/*idciudad*/
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "ciudad_id")
+	private Ciudad ciudad;
 }
+  
