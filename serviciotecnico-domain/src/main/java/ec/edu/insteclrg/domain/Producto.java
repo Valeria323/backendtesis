@@ -26,21 +26,21 @@ public class Producto {
 	private String nombre;
 
 	@Column(nullable = false)
-	private String precioventa;
+	private long precioventa;
 
 	@Column(nullable = false)
-	private String stockMin;
+	private long stockMin;
 	
 	@Column(nullable = false)
-	private String stockMax;
+	private long stockMax;
 
 	@Column(nullable = false)
-	private String stock;
+	private long stock;
 	
 	@Column(nullable = false)
-	private String controlaStock;
+	private long controlaStock;
 
 	@Column(nullable = false)
-	private String aplicaIva ;
+	private long aplicaIva ;
 
 }
