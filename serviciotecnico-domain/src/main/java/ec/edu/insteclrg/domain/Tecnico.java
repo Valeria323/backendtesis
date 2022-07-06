@@ -38,7 +38,7 @@ public class Tecnico {
     private String direccion;
 	
 	
-	@ManyToOne(optional = false)
+	@ManyToOne
 	@JoinColumn(name = "ciudad_id")
 	private Ciudad ciudad;
 }
