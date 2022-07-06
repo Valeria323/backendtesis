@@ -27,11 +27,7 @@ public class DetalleOrdenServicio {
 	@ManyToOne
 	@JoinColumn(name ="idTipoOrden")
 	private TipoOrdenServicio tipoordenservicio; 
-	
-	@ManyToOne
-	@JoinColumn(name ="idDiagnostico")
-	private Marca marca; 
-	
+		
 	@Column(nullable = true)
 	private String diagnosticReception; 
 	

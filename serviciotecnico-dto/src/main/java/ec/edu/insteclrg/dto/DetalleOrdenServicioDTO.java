@@ -11,8 +11,6 @@ public class DetalleOrdenServicioDTO {
 
 	private TipoOrdenServicioDTO tipoOrdenServicio; 
 
-	private MarcaDTO marca; 
-
 	private String diagnosticReception; 
 
 	private String accesories; 
