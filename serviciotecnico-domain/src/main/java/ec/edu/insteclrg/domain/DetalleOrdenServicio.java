@@ -26,7 +26,7 @@ public class DetalleOrdenServicio {
 	
 	@ManyToOne
 	@JoinColumn(name ="idTipoOrden")
-	private TipoOrdenServicio tipoordenservicio; 
+	
 		
 	@Column(nullable = true)
 	private String diagnosticReception; 

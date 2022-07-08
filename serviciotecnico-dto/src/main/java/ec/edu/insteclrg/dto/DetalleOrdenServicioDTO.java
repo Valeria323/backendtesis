@@ -9,7 +9,7 @@ public class DetalleOrdenServicioDTO {
 
 	private String name;
 
-	private TipoOrdenServicioDTO tipoOrdenServicio; 
+
 
 	private String diagnosticReception; 
 
