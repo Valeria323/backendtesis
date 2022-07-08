@@ -24,8 +24,6 @@ public class DetalleOrdenServicio {
 	@Column(nullable = true, unique= true )
 	private String name;
 	
-	@ManyToOne
-	@JoinColumn(name ="idTipoOrden")
 	
 		
 	@Column(nullable = true)
