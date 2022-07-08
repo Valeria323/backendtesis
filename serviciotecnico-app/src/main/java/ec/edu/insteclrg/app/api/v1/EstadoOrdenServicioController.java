@@ -32,12 +32,6 @@ public class EstadoOrdenServicioController {
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, null), HttpStatus.CREATED);
 	}
 
-	@PutMapping(path = "/{id}")
-	public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody EstadoOrdenServicioDTO dto) {
-		service.update(id, dto);
-		return new ResponseEntity<>(new ApiResponseDTO<>(true, null), HttpStatus.CREATED);
-	}
-
 	@GetMapping
 	public ResponseEntity<Object> findAll() {
 		List<EstadoOrdenServicioDTO> list = service.findAll(new EstadoOrdenServicioDTO());

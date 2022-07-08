@@ -42,17 +42,5 @@ public class EstadoOrdenServicioService  extends GenericCrudServiceImpl<EstadoOr
 		estadoordenservicio = modelMapper.map(dto, EstadoOrdenServicio.class);
 		return estadoordenservicio;
 	}
-
-	public void update(Long id, EstadoOrdenServicioDTO dto) {
-		EstadoOrdenServicioDTO estadoordenservicioDto = new EstadoOrdenServicioDTO();
-		estadoordenservicioDto.setId(id);
-		Optional<EstadoOrdenServicio> optionalEstadoOrdenServicio = repository.findById(estadoordenservicioDto.getId());
-		if (!optionalEstadoOrdenServicio.isPresent()) {
-			throw new ResourceNotFoundException(String.format("El id %s no se encuentra registrado", id));
-		}
-		EstadoOrdenServicio estadoordenservicio = optionalEstadoOrdenServicio.get();
-		estadoordenservicio.setState(dto.getState());
-		repository.save(estadoordenservicio);
-	}
 	
 }
