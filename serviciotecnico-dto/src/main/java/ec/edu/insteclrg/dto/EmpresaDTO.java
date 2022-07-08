@@ -11,13 +11,15 @@ public class EmpresaDTO {
 
 	private String ruc;
 
-	private String name;
+	private String nombre;
 
-	private String address;
+	private String direccion;
 	
 	private CiudadDTO ciudad;
 	
-	private String phone;
+	private String telefono;
 	
 	private String email;
+	
+	private float porcentajeIVA;
 }
