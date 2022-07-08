@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ec.edu.insteclrg.common.dto.ApiResponseDTO;
 import ec.edu.insteclrg.domain.Cliente;
 import ec.edu.insteclrg.dto.ClienteDTO;
+import ec.edu.insteclrg.dto.TestDTO;
 import ec.edu.insteclrg.service.crud.ClienteService;
 
 @RestController
@@ -32,12 +33,11 @@ public class ClienteController {
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, null), HttpStatus.CREATED);
 	}
 
-	@PutMapping(path = "/{id}")
-	public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody ClienteDTO dto) {
-		service.update(id, dto);
+	@PutMapping
+	public ResponseEntity<Object> update(@RequestBody ClienteDTO dto) {
+		service.update(dto);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, null), HttpStatus.CREATED);
 	}
-
 	@GetMapping
 	public ResponseEntity<Object> findAll() {
 		List<ClienteDTO> list = service.findAll(new ClienteDTO());

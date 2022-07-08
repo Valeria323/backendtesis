@@ -43,16 +43,4 @@ public class ClienteService extends GenericCrudServiceImpl<Cliente, ClienteDTO>{
 		cliente = modelMapper.map(dto, Cliente.class);
 		return cliente;
 	}
-
-	public void update(Long id, ClienteDTO dto) {
-		ClienteDTO clientesDto = new ClienteDTO();
-		clientesDto.setId(id);
-		Optional<Cliente> optionalClientes = repository.findById(clientesDto.getId());
-		if (!optionalClientes.isPresent()) {
-			throw new ResourceNotFoundException(String.format("El id %s no se encuentra registrado", id));
-		}
-		Cliente clientes = optionalClientes.get();
-		clientes.setNombres(dto.getNombres());
-		repository.save(clientes);
-	}
 }
