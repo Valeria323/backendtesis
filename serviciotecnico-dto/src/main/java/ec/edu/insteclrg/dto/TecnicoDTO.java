@@ -18,5 +18,7 @@ public class TecnicoDTO {
 	
 	private String direccion;
 	
+	private TecnicoDTO tecnico;
+	
 
 }
