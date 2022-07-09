@@ -31,9 +31,9 @@ public class ProvinciaController {
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, null), HttpStatus.CREATED);
 	}
 	
-	@PutMapping(path = "/{id}")
-	public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody ProvinciaDTO dto) {
-		service.update(id, dto);
+	@PutMapping
+	public ResponseEntity<Object> update(@RequestBody ProvinciaDTO dto) {
+		service.update(dto);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, null), HttpStatus.CREATED);
 	}
 	
