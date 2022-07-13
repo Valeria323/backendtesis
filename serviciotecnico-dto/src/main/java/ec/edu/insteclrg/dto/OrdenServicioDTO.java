@@ -11,7 +11,7 @@ public class OrdenServicioDTO {
 	
 	private String numOrder;
 	
-	private EmpresaDTO id_empresa;
+	private EmpresaDTO empresa;
 	
 	private ClienteDTO cliente;
 	

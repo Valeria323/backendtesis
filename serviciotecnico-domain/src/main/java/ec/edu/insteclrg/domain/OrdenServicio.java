@@ -28,7 +28,7 @@ public class OrdenServicio {
 	
 	@ManyToOne
 	@JoinColumn(name ="id_empresa")
-	private Empresa id_empresa;
+	private Empresa empresa;
 	
 	@ManyToOne
 	@JoinColumn(name ="id_cliente")
