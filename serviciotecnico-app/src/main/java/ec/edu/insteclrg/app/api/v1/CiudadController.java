@@ -2,7 +2,6 @@ package ec.edu.insteclrg.app.api.v1;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import ec.edu.insteclrg.common.dto.ApiResponseDTO;
 import ec.edu.insteclrg.domain.Ciudad;
 import ec.edu.insteclrg.dto.CiudadDTO;
@@ -22,6 +20,7 @@ import ec.edu.insteclrg.service.crud.CiudadService;
 @RestController
 @RequestMapping(value = "/api/v1.0/ciudad")
 public class CiudadController {
+	
 	@Autowired
 	CiudadService service;
 
@@ -46,7 +45,6 @@ public class CiudadController {
 		} else {
 			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
 		}
-		
 	}
 
 	@GetMapping(path = "/{id}")
