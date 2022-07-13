@@ -4,21 +4,32 @@ import lombok.Data;
 
 @Data
 public class DetalleOrdenServicioDTO {
-
+	
 	private long id;
+	
+	private OrdenServicioDTO service_order_id;
+	
+	private String quantity;
+		
+	private ProductoDTO product_code; 
+	
+	private String description; 
+	
+	private String unit_price;
+	
+	private String discount;
 
-	private String name;
+	private String IVA_percentaje;
+	
+	private String IVA_value;
+	
+	private String total;
+	
+	private String diagnosis_reception;
+	
+	private String technical_diagnosis;
 
+	private String description_technical_diagnosis;
 
-
-	private String diagnosticReception; 
-
-	private String accesories; 
-
-	private OrdenServicioDTO ordenServicio;
-
-	private String diagnosticTecnic;
-
-	private String descriptionSolutionTenic;
-
+	private EstadoOrdenServicioDTO service_order_status_id; 
 }

@@ -15,37 +15,49 @@ import lombok.Setter;
 @Setter
 @Entity
 public class OrdenServicio {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private long id;
 	
-	@Column(nullable = true, unique= true )
-	private String numberOrder;
+	@Column(nullable = true, name= "number_order")
+	private String numOrder;
 	
 	@ManyToOne
-	@JoinColumn(name ="idCliente")
-	private Cliente cliente; 
+	@JoinColumn(name ="enterprise_id")
+	private Empresa enterprise;
+	
+	@ManyToOne
+	@JoinColumn(name ="client_id")
+	private Cliente client;
 	
 	@Column(nullable = true)
-	private String dateInput; 
+	private String date_issiue; 
+
+	@ManyToOne
+	@JoinColumn(name ="service_order_status_id")
+	private EstadoOrdenServicio service_order_status;
 	
 	@Column(nullable = true)
-	private String dateFin; 
-	
-	@ManyToOne
-	@JoinColumn(name ="id_estado_orden_servicio")
-	private EstadoOrdenServicio estadoOrdenServicio; 
+	private String sub_total_with_IVA;
 	
 	@Column(nullable = true)
-	private String valueFin;
+	private String sub_total_without_IVA;
 	
 	@ManyToOne
-	@JoinColumn(name ="id_tecnico")
-	private Tecnico tecnico;
+	@JoinColumn(name ="tecnic_id")
+	private Tecnico tecnic;
+
+	@Column(nullable = true)
+	private String discount;
 	
-	@ManyToOne
-	@JoinColumn(name ="id_empresa")
-	private Empresa empresa;
+	@Column(nullable = true)
+	private String value_IVA;
 	
+	@Column(nullable = true)
+	private String total;
+	
+	@Column(nullable = true)
+	private String observations;
 }

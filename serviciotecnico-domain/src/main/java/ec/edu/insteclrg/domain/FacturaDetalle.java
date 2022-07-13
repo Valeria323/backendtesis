@@ -15,32 +15,38 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Empresa {
+public class FacturaDetalle {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private long id;
 
-	@Column(nullable = false, unique = true)
-	private String ruc;
-
-	@Column(nullable = false)
-	private String nombre;
-
-	@Column(nullable = false)
-	private String direccion;
-	
-	
 	@ManyToOne(optional = false)
-	@JoinColumn(name = "ciudad_id")
-	private Ciudad ciudad;
+	@JoinColumn(name = "factura_id")
+	private Factura factura;
 
 	@Column(nullable = false)
-	private String telefono;
+	private long cantidad;
+
+	@Column(nullable = false)
+	private String codigoProducto;
 	
 	@Column(nullable = false)
-	private String email;
+	private String descripcion;
+	
+	@Column(nullable = false)
+	private float precioUnitario;
+	
+	@Column(nullable = false)
+	private float descuento;
 	
 	@Column(nullable = false)
 	private float porcentajeIVA;
+	
+	@Column(nullable = false)
+	private float valorIVA;
+	
+	@Column(nullable = false)
+	private float total;
+
 }

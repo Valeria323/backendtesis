@@ -7,20 +7,28 @@ public class OrdenServicioDTO {
 	
 	private long id;
 	
-	private String numberOrder;
+	private String number_order;
 	
-	private ClienteDTO cliente; 
+	private EmpresaDTO enterprise;
 	
-	private String dateInput; 
+	private ClienteDTO client;
+	
+	private String date_issiue; 
 
-	private String date; 
+	private EstadoOrdenServicioDTO service_order_status;
+	
+	private String sub_total_with_IVA;
+	
+	private String sub_total_without_IVA;
+	
+	private TecnicoDTO tecnic;
 
-	private EstadoOrdenServicioDTO estadoOrdenServicio; 
-
-	private String valueFin;
-
-	private TecnicoDTO tecnico;
-
-	private EmpresaDTO empresa;
-
+	private String discount;
+	
+	private String value_IVA;
+	
+	private String total;
+	
+	private String observations;
+	
 }

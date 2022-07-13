@@ -15,50 +15,50 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ec.edu.insteclrg.common.dto.ApiResponseDTO;
-import ec.edu.insteclrg.domain.Ciudad;
-import ec.edu.insteclrg.dto.CiudadDTO;
-import ec.edu.insteclrg.service.crud.CiudadService;
+import ec.edu.insteclrg.domain.FacturaDetalle;
+import ec.edu.insteclrg.dto.FacturaDetalleDTO;
+import ec.edu.insteclrg.service.crud.FacturaDetalleService;
 
 @RestController
-@RequestMapping(value = "/api/v1.0/ciudad")
-public class CiudadController {
+@RequestMapping(value = "/api/v1.0/facturaDetalle")
+public class FacturaDetalleController {
 	@Autowired
-	CiudadService service;
+	FacturaDetalleService service;
 
 	@PostMapping
-	public ResponseEntity<Object> save(@RequestBody CiudadDTO dto) {
+	public ResponseEntity<Object> save(@RequestBody FacturaDetalleDTO dto) {
 		service.save(dto);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, null), HttpStatus.CREATED);
 	}
-	
+
 	@PutMapping
-	public ResponseEntity<Object> update(@RequestBody CiudadDTO dto) {
+	public ResponseEntity<Object> update(@RequestBody FacturaDetalleDTO dto) {
 		service.update(dto);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, null), HttpStatus.CREATED);
 	}
-	
+
 	@GetMapping
 	public ResponseEntity<Object> findAll() {
-		List<CiudadDTO> list = service.findAll(new CiudadDTO());
+		List<FacturaDetalleDTO> list = service.findAll(new FacturaDetalleDTO());
 		if (!list.isEmpty()) {
-			ApiResponseDTO<List<CiudadDTO>> response = new ApiResponseDTO<>(true, list);
+			ApiResponseDTO<List<FacturaDetalleDTO>> response = new ApiResponseDTO<>(true, list);
 			return (new ResponseEntity<Object>(response, HttpStatus.OK));
 		} else {
 			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
 		}
-		
 	}
 
 	@GetMapping(path = "/{id}")
 	public ResponseEntity<Object> find(@PathVariable Long id) {
-		CiudadDTO dto = new CiudadDTO();
+		FacturaDetalleDTO dto = new FacturaDetalleDTO();
 		dto.setId(id);
-		Optional<Ciudad> Ciudad = service.find(dto);
-		if (Ciudad.isPresent()) {
-			ApiResponseDTO<Ciudad> response = new ApiResponseDTO<>(true, Ciudad.get());
+		Optional<FacturaDetalle> facturaDetalle = service.find(dto);
+		if (facturaDetalle.isPresent()) {
+			ApiResponseDTO<FacturaDetalle> response = new ApiResponseDTO<>(true, facturaDetalle.get());
 			return (new ResponseEntity<Object>(response, HttpStatus.OK));
 		} else {
 			return new ResponseEntity<>(new ApiResponseDTO<>(false, null), HttpStatus.NOT_FOUND);
 		}
 	}
+
 }
