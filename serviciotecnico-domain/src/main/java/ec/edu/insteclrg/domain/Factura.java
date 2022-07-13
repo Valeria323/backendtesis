@@ -68,7 +68,7 @@ public class Factura {
 	@Column(nullable = false)
 	private float total;
 	
-	/*@ManyToOne(optional = false)
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "ordenServicio_id")
-	private OrdenServicio ordenServicio;*/
+	private OrdenServicio ordenServicio;
 }

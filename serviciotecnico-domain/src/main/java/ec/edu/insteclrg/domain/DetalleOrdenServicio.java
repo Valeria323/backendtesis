@@ -22,44 +22,45 @@ public class DetalleOrdenServicio {
 	private long id;
 	
 	@ManyToOne
-	@JoinColumn(name ="service_order_id")
-	private OrdenServicio service_order;
+	@JoinColumn(name ="id_orden_servicio")
+	private OrdenServicio orden_servicio;
 	
 	@Column(nullable = true, unique= true )
-	private String quantity;
+	private float cantidad;
 		
 	@ManyToOne
-	@JoinColumn(name ="product_code")
-	private Producto product; 
+	@JoinColumn(name ="codigo_producto")
+	private Producto producto; 
 	
 	@Column(nullable = true)
 	private String description; 
 	
 	@Column(nullable = true)
-	private String unit_price;
+	private float precio_unitario;
 	
 	@Column(nullable = true)
-	private String discount;
+	private float descuento;
 	
 	@Column(nullable = true)
-	private String IVA_percentaje;
+	private float porcentaje_IVA;
 	
 	@Column(nullable = true)
-	private String IVA_value;
+	private float valor_IVA;
 	
 	@Column(nullable = true)
-	private String total;
+	private float total;
 	
 	@Column(nullable = true)
-	private String diagnosis_reception;
+	private String diagnostico_recepcion;
 	
 	@Column(nullable = true)
-	private String technical_diagnosis;
+	private String diagnostico_tecnico;;
 	
 	@Column(nullable = true)
-	private String description_technical_diagnosis;
+	private String descripcion_diagnostico_tecnico;
 	
 	@ManyToOne
-	@JoinColumn(name ="service_order_status_id")
-	private EstadoOrdenServicio service_order_status; 
+	@JoinColumn(name ="id_estado_orden_servcio")
+	private EstadoOrdenServicio estado_orden_servcio; 
+	
 }

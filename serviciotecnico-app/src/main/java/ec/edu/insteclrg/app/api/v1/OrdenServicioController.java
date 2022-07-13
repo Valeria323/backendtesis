@@ -49,10 +49,10 @@ public class OrdenServicioController {
 		}
 	}
 
-	@GetMapping(path = "/{numberOrder}")
-	public ResponseEntity<Object> find(@PathVariable String numberOrder) {
+	@GetMapping(path = "/{numOrden}")
+	public ResponseEntity<Object> find(@PathVariable String numOrden) {
 		OrdenServicioDTO dto = new OrdenServicioDTO();
-		dto.setNumber_order(numberOrder);
+		dto.setNumero_orden(numOrden);
 		Optional<OrdenServicio> test = service.find(dto);
 		if (test.isPresent()) {
 			ApiResponseDTO<OrdenServicio> response = new ApiResponseDTO<>(true, test.get());
