@@ -9,4 +9,6 @@ public class EstadoOrdenServicioDTO {
 	
 	private String state;
 	
+	private EmpresaDTO empresa;
+	
 }

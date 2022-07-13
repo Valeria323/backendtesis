@@ -6,13 +6,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ec.edu.insteclrg.common.exception.ResourceNotFoundException;
 import ec.edu.insteclrg.domain.Producto;
-import ec.edu.insteclrg.domain.Test;
 import ec.edu.insteclrg.dto.ProductoDTO;
-import ec.edu.insteclrg.dto.TestDTO;
 import ec.edu.insteclrg.persistence.ProductoRepository;
-import ec.edu.insteclrg.persistence.TestRepository;
 import ec.edu.insteclrg.service.GenericCrudServiceImpl;
 
 @Service

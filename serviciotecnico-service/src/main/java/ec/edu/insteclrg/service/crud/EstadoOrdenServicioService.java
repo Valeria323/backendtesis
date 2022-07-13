@@ -6,7 +6,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ec.edu.insteclrg.common.exception.ResourceNotFoundException;
 import ec.edu.insteclrg.domain.EstadoOrdenServicio;
 import ec.edu.insteclrg.dto.EstadoOrdenServicioDTO;
 import ec.edu.insteclrg.persistence.EstadoOrdenServicioRepository;
