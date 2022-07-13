@@ -2,7 +2,6 @@ package ec.edu.insteclrg.app.api.v1;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,16 +12,15 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import ec.edu.insteclrg.common.dto.ApiResponseDTO;
 import ec.edu.insteclrg.domain.Tecnico;
-
 import ec.edu.insteclrg.dto.TecnicoDTO;
 import ec.edu.insteclrg.service.crud.TecnicoService;
 
 @RestController
 @RequestMapping(value = "/api/v1.0/tecnico")
 public class TecnicoController {
+	
 	@Autowired
 	TecnicoService service;
 
