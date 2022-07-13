@@ -24,7 +24,7 @@ public class OrdenServicio {
 	private long id;
 	
 	@Column(nullable = true, name= "numero_orden")
-	private String numOrder;
+	private String numOrden;
 	
 	@ManyToOne
 	@JoinColumn(name ="id_empresa")
