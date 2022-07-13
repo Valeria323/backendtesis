@@ -1,6 +1,5 @@
 package ec.edu.insteclrg.dto;
 
-
 import lombok.Data;
 
 @Data
