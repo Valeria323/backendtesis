@@ -9,7 +9,7 @@ public class OrdenServicioDTO {
 	
 	private long id;
 	
-	private String numOrder;
+	private String numero_orden;
 	
 	private EmpresaDTO empresa;
 	
