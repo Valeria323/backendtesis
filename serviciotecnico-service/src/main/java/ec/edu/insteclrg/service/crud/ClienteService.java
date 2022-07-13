@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ec.edu.insteclrg.common.exception.ResourceNotFoundException;
 import ec.edu.insteclrg.domain.Cliente;
 import ec.edu.insteclrg.dto.ClienteDTO;
 import ec.edu.insteclrg.persistence.ClienteRepository;

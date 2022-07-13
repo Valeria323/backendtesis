@@ -23,6 +23,4 @@ public class ClienteDTO {
 
 	private String estado;
 	
-	private TipoClienteDTO tipoClienteDTO;
-
 }
