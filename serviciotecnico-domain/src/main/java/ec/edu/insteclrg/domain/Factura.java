@@ -26,6 +26,18 @@ public class Factura {
 
 	@Column(nullable = false)
 	private String numero;
+	
+	@Column(nullable = false)
+	private String numeroEstablecimiento;
+	
+	@Column(nullable = false)
+	private String numeroPuntoEmision;
+	
+	@Column(nullable = false)
+	private String numeroSecuencial;
+	
+	@Column(nullable = false)
+	private String codigoAcceso;
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "empresa_id")
