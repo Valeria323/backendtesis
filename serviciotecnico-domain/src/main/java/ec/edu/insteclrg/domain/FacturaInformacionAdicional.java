@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
+
 @Getter
 @Setter
 @Entity
@@ -31,6 +32,5 @@ public class FacturaInformacionAdicional {
 	@ManyToOne
 	@JoinColumn(name = "id_empresa")
 	private Empresa empresa;
-	
 	
 }
