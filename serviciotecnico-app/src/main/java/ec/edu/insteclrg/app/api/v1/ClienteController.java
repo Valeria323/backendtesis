@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ec.edu.insteclrg.common.dto.ApiResponseDTO;
 import ec.edu.insteclrg.domain.Cliente;
 import ec.edu.insteclrg.dto.ClienteDTO;
-import ec.edu.insteclrg.dto.TestDTO;
 import ec.edu.insteclrg.service.crud.ClienteService;
 
 @RestController
