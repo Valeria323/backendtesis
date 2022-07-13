@@ -16,7 +16,6 @@ public class DetalleOrdenServicioService extends GenericCrudServiceImpl<DetalleO
 
 	@Autowired
 	private DetalleOrdenServicioRepository repository;
-	
 	private ModelMapper modelMapper = new ModelMapper();
 
 	@Override
@@ -26,15 +25,11 @@ public class DetalleOrdenServicioService extends GenericCrudServiceImpl<DetalleO
 
 	@Override
 	public DetalleOrdenServicioDTO mapToDto(DetalleOrdenServicio domain) {
-		DetalleOrdenServicioDTO dto = new DetalleOrdenServicioDTO();
-		dto = modelMapper.map(domain, DetalleOrdenServicioDTO.class);
-		return dto;
+		return modelMapper.map(domain, DetalleOrdenServicioDTO.class);
 	}
 
 	@Override
 	public DetalleOrdenServicio mapToDomain(DetalleOrdenServicioDTO dto) {
-		DetalleOrdenServicio domain = new DetalleOrdenServicio();
-		domain = modelMapper.map(dto, DetalleOrdenServicio.class);
-		return domain;
+		return modelMapper.map(dto, DetalleOrdenServicio.class);
 	}
 }
