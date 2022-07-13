@@ -47,7 +47,7 @@ public class DetalleOrdenServicioService extends GenericCrudServiceImpl<DetalleO
 			throw new ResourceNotFoundException(String.format("El código %s no se encuentra registrado", id));
 		}
 		DetalleOrdenServicio test = optionalTest.get();
-		test.setName(dto.getName());
+		test.setDescription(dto.getDescription());
 		repository.save(test);
 	}
 }

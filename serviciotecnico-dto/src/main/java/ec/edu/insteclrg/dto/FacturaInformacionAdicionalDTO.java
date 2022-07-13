@@ -1,16 +1,19 @@
 package ec.edu.insteclrg.dto;
 
-
 import lombok.Data;
 
 @Data
-public class FormaPagoDTO {
+public class FacturaInformacionAdicionalDTO {
+	
 	private long id;
-
-	private String codigo;
+	
+	private FacturaDTO factura;
 
 	private String nombre;
-
+	
+	private String descripcion;
+	
 	private EmpresaDTO empresa;
 	
+
 }

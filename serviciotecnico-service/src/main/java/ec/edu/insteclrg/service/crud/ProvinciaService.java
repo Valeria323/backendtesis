@@ -2,10 +2,9 @@ package ec.edu.insteclrg.service.crud;
 
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import ec.edu.insteclrg.common.exception.ResourceNotFoundException;
 import ec.edu.insteclrg.domain.Provincia;
 import ec.edu.insteclrg.dto.ProvinciaDTO;
 import ec.edu.insteclrg.persistence.ProvinciaRepository;
@@ -16,6 +15,8 @@ public class ProvinciaService extends GenericCrudServiceImpl<Provincia, Provinci
 	@Autowired
 	private ProvinciaRepository repository;
 
+	private ModelMapper modelMapper = new ModelMapper();
+
 	@Override
 	public Optional<Provincia> find(ProvinciaDTO dto) {
 		return repository.findById(dto.getId());
@@ -23,31 +24,11 @@ public class ProvinciaService extends GenericCrudServiceImpl<Provincia, Provinci
 
 	@Override
 	public ProvinciaDTO mapToDto(Provincia domain) {
-		ProvinciaDTO ProvinciaDTO = new ProvinciaDTO();
-		ProvinciaDTO.setId(domain.getId());
-		ProvinciaDTO.setNombre(domain.getNombre());
-		return ProvinciaDTO;
+		return modelMapper.map(domain, ProvinciaDTO.class);
 	}
 
 	@Override
 	public Provincia mapToDomain(ProvinciaDTO dto) {
-		Provincia Provincia = new Provincia();
-		Provincia.setId(dto.getId());
-		Provincia.setNombre(dto.getNombre());
-		return Provincia;
+		return modelMapper.map(dto, Provincia.class);
 	}
-	
-	public void update(Long id, ProvinciaDTO dto) {
-		ProvinciaDTO ProvinciaDto = new ProvinciaDTO();
-		ProvinciaDto.setId(id);
-		Optional<Provincia> optionalmarca = repository.findById(ProvinciaDto.getId());
-		if (!optionalmarca.isPresent()) {
-			throw new ResourceNotFoundException(String.format("El id %s no se encuentra registrado", id));
-		}
-		Provincia Provincia = optionalmarca.get();
-		Provincia.setNombre(dto.getNombre());
-		repository.save(Provincia);
-
-}
-
 }

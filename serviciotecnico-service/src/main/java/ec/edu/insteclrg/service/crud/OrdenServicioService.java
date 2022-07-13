@@ -22,7 +22,7 @@ public class OrdenServicioService extends GenericCrudServiceImpl<OrdenServicio, 
 
 	@Override
 	public Optional<OrdenServicio> find(OrdenServicioDTO dto) {
-		return repository.findByNumberOrder(dto.getNumberOrder());
+		return repository.findByNumOrder(dto.getNumber_order());
 	}
 
 	@Override
@@ -39,15 +39,15 @@ public class OrdenServicioService extends GenericCrudServiceImpl<OrdenServicio, 
 		return domain;
 	}
 
-	public void update(String numberOrder, OrdenServicioDTO dto) {
+	public void update(String numOrder, OrdenServicioDTO dto) {
 		OrdenServicioDTO testDto = new OrdenServicioDTO();
-		testDto.setNumberOrder(numberOrder);
-		Optional<OrdenServicio> optionalTest = repository.findByNumberOrder(testDto.getNumberOrder());
+		testDto.setNumber_order(numOrder);
+		Optional<OrdenServicio> optionalTest = repository.findByNumOrder(testDto.getNumber_order());
 		if (!optionalTest.isPresent()) {
-			throw new ResourceNotFoundException(String.format("El código %s no se encuentra registrado", numberOrder));
+			throw new ResourceNotFoundException(String.format("El código %s no se encuentra registrado", numOrder));
 		}
 		OrdenServicio test = optionalTest.get();
-		test.setNumberOrder(dto.getNumberOrder());
+		test.setNumOrder(dto.getNumber_order());
 		repository.save(test);
 	}
 }

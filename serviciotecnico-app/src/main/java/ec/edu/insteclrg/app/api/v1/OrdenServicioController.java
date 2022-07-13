@@ -32,9 +32,9 @@ public class OrdenServicioController {
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, null), HttpStatus.CREATED);
 	}
 
-	@PutMapping(path = "/{numberOrder}")
-	public ResponseEntity<Object> update(@PathVariable String numberOrder, @RequestBody OrdenServicioDTO dto) {
-		service.update(numberOrder, dto);
+	@PutMapping
+	public ResponseEntity<Object> update(@RequestBody OrdenServicioDTO dto) {
+		service.update(dto);
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, null), HttpStatus.CREATED);
 	}
 	
@@ -52,7 +52,7 @@ public class OrdenServicioController {
 	@GetMapping(path = "/{numberOrder}")
 	public ResponseEntity<Object> find(@PathVariable String numberOrder) {
 		OrdenServicioDTO dto = new OrdenServicioDTO();
-		dto.setNumberOrder(numberOrder);
+		dto.setNumber_order(numberOrder);
 		Optional<OrdenServicio> test = service.find(dto);
 		if (test.isPresent()) {
 			ApiResponseDTO<OrdenServicio> response = new ApiResponseDTO<>(true, test.get());

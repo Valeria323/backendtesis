@@ -41,5 +41,10 @@ public class Tecnico {
 	@ManyToOne
 	@JoinColumn(name = "ciudad_id")
 	private Ciudad ciudad;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_empresa")
+	private Empresa empresa;
+	
 }
   

@@ -8,5 +8,5 @@ import ec.edu.insteclrg.domain.OrdenServicio;
 
 public interface OrdenServicioRepository extends JpaRepository<OrdenServicio, Long> {
 
-	Optional<OrdenServicio> findByNumberOrder(String numberOrder);
+	Optional<OrdenServicio> findByNumOrder(String numOrder);
 }
