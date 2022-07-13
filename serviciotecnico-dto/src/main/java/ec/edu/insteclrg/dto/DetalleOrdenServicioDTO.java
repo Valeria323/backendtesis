@@ -7,29 +7,30 @@ public class DetalleOrdenServicioDTO {
 	
 	private long id;
 	
-	private OrdenServicioDTO service_order_id;
+	private OrdenServicioDTO orden_servicio;
 	
-	private String quantity;
+	private float cantidad;
 		
-	private ProductoDTO product_code; 
+	private ProductoDTO producto;
 	
-	private String description; 
+	private String descripcion;
 	
-	private String unit_price;
+	private float precio_unitario;
 	
-	private String discount;
+	private float descuento;
 
-	private String IVA_percentaje;
+	private float porcentaje_IVA;
 	
-	private String IVA_value;
+	private float valor_IVA;
 	
-	private String total;
+	private float total;
 	
-	private String diagnosis_reception;
+	private String diagnostico_recepcion;
 	
-	private String technical_diagnosis;
+	private String diagnostico_tecnico;
 
-	private String description_technical_diagnosis;
+	private String descripcion_diagnostico_tecnico;
 
-	private EstadoOrdenServicioDTO service_order_status_id; 
+	private EstadoOrdenServicioDTO estado_orden_servcio;
+	
 }

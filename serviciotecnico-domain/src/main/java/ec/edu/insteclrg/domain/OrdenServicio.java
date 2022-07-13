@@ -1,5 +1,7 @@
 package ec.edu.insteclrg.domain;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,43 +23,43 @@ public class OrdenServicio {
 	@Column(updatable = false, nullable = false)
 	private long id;
 	
-	@Column(nullable = true, name= "number_order")
-	private String numOrder;
+	@Column(nullable = true, name= "numero_orden")
+	private String numOrden;
 	
 	@ManyToOne
-	@JoinColumn(name ="enterprise_id")
-	private Empresa enterprise;
+	@JoinColumn(name ="id_empresa")
+	private Empresa empresa;
 	
 	@ManyToOne
-	@JoinColumn(name ="client_id")
-	private Cliente client;
+	@JoinColumn(name ="id_cliente")
+	private Cliente cliente;
 	
 	@Column(nullable = true)
-	private String date_issiue; 
+	private LocalDate fecha_emision; 
 
 	@ManyToOne
-	@JoinColumn(name ="service_order_status_id")
-	private EstadoOrdenServicio service_order_status;
+	@JoinColumn(name ="id_estado_orden_servicio")
+	private EstadoOrdenServicio estado_orden_servicio;
 	
 	@Column(nullable = true)
-	private String sub_total_with_IVA;
+	private float sub_total_con_IVA;
 	
 	@Column(nullable = true)
-	private String sub_total_without_IVA;
+	private float sub_total_sin_IVA;
 	
 	@ManyToOne
-	@JoinColumn(name ="tecnic_id")
-	private Tecnico tecnic;
+	@JoinColumn(name ="id_tecnico")
+	private Tecnico tecnico;
 
 	@Column(nullable = true)
-	private String discount;
+	private float descuento;
 	
 	@Column(nullable = true)
-	private String value_IVA;
+	private float valor_IVA;
 	
 	@Column(nullable = true)
-	private String total;
+	private float total;
 	
 	@Column(nullable = true)
-	private String observations;
+	private String observaciones;
 }

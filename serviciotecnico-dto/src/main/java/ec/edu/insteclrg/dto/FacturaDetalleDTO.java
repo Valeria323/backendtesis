@@ -1,6 +1,5 @@
 package ec.edu.insteclrg.dto;
 
-
 import lombok.Data;
 
 @Data
@@ -9,7 +8,7 @@ public class FacturaDetalleDTO {
 
 	private FacturaDTO factura;
 	
-	private long cantidad;
+	private float cantidad;
 
 	private String codigoProducto;
 	

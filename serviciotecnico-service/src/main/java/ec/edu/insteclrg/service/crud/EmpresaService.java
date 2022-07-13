@@ -11,7 +11,6 @@ import ec.edu.insteclrg.dto.EmpresaDTO;
 import ec.edu.insteclrg.persistence.EmpresaRepository;
 import ec.edu.insteclrg.service.GenericCrudServiceImpl;
 
-
 @Service
 public class EmpresaService extends GenericCrudServiceImpl<Empresa, EmpresaDTO>{
 	
@@ -26,16 +25,11 @@ public class EmpresaService extends GenericCrudServiceImpl<Empresa, EmpresaDTO>{
 	
 	@Override
 	public EmpresaDTO mapToDto(Empresa domain) {
-		EmpresaDTO testDTO = new EmpresaDTO();
-		testDTO = modelMapper.map(domain, EmpresaDTO.class);
-		return testDTO;
+		return modelMapper.map(domain, EmpresaDTO.class);
 	}
 	
 	@Override
 	public Empresa mapToDomain(EmpresaDTO dto) {
-		Empresa test = new Empresa();
-		test = modelMapper.map(dto, Empresa.class);
-		return test;
+		return modelMapper.map(dto, Empresa.class);
 	}
-	
 }

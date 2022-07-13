@@ -16,25 +16,20 @@ public class OrdenServicioService extends GenericCrudServiceImpl<OrdenServicio, 
 
 	@Autowired
 	private OrdenServicioRepository repository;
-
 	private ModelMapper modelMapper = new ModelMapper();
 
 	@Override
 	public Optional<OrdenServicio> find(OrdenServicioDTO dto) {
-		return repository.findByNumOrder(dto.getNumber_order());
+		return repository.findByNumOrder(dto.getNumero_orden());
 	}
 
 	@Override
 	public OrdenServicioDTO mapToDto(OrdenServicio domain) {
-		OrdenServicioDTO dto = new OrdenServicioDTO();
-		dto = modelMapper.map(domain, OrdenServicioDTO.class);
-		return dto;
+		return modelMapper.map(domain, OrdenServicioDTO.class);
 	}
 
 	@Override
 	public OrdenServicio mapToDomain(OrdenServicioDTO dto) {
-		OrdenServicio domain = new OrdenServicio();
-		domain = modelMapper.map(dto, OrdenServicio.class);
-		return domain;
+		return modelMapper.map(dto, OrdenServicio.class);
 	}
 }

@@ -25,16 +25,11 @@ public class FacturaService extends GenericCrudServiceImpl<Factura, FacturaDTO>{
 	
 	@Override
 	public FacturaDTO mapToDto(Factura domain) {
-		FacturaDTO testDTO = new FacturaDTO();
-		testDTO = modelMapper.map(domain, FacturaDTO.class);
-		return testDTO;
+		return modelMapper.map(domain, FacturaDTO.class);
 	}
 	
 	@Override
 	public Factura mapToDomain(FacturaDTO dto) {
-		Factura test = new Factura();
-		test = modelMapper.map(dto, Factura.class);
-		return test;
+		return modelMapper.map(dto, Factura.class);
 	}
-
 }

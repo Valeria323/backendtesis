@@ -1,5 +1,7 @@
 package ec.edu.insteclrg.dto;
 
+import java.time.LocalDate;
+
 import lombok.Data;
 
 @Data
@@ -7,28 +9,28 @@ public class OrdenServicioDTO {
 	
 	private long id;
 	
-	private String number_order;
+	private String numero_orden;
 	
-	private EmpresaDTO enterprise;
+	private EmpresaDTO empresa;
 	
-	private ClienteDTO client;
+	private ClienteDTO cliente;
 	
-	private String date_issiue; 
+	private LocalDate fecha_emision; 
 
-	private EstadoOrdenServicioDTO service_order_status;
+	private EstadoOrdenServicioDTO estado_orden_servicio;
 	
-	private String sub_total_with_IVA;
+	private float sub_total_con_IVA;
 	
-	private String sub_total_without_IVA;
+	private float sub_total_sin_IVA;
 	
-	private TecnicoDTO tecnic;
+	private TecnicoDTO tecnico;
 
-	private String discount;
+	private float descuento;
 	
-	private String value_IVA;
+	private float valor_IVA;
 	
-	private String total;
+	private float total;
 	
-	private String observations;
+	private String observaciones;
 	
 }
