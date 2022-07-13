@@ -35,6 +35,6 @@ public class FacturaDTO {
 	
 	private float total;
 	
-	/*private OrdenServicioDTO ordenServicio;*/
+	private OrdenServicioDTO ordenServicio;
 
 }

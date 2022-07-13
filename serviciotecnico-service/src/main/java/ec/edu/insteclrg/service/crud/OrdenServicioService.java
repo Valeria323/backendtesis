@@ -6,7 +6,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ec.edu.insteclrg.common.exception.ResourceNotFoundException;
 import ec.edu.insteclrg.domain.OrdenServicio;
 import ec.edu.insteclrg.dto.OrdenServicioDTO;
 import ec.edu.insteclrg.persistence.OrdenServicioRepository;
@@ -37,17 +36,5 @@ public class OrdenServicioService extends GenericCrudServiceImpl<OrdenServicio, 
 		OrdenServicio domain = new OrdenServicio();
 		domain = modelMapper.map(dto, OrdenServicio.class);
 		return domain;
-	}
-
-	public void update(String numOrder, OrdenServicioDTO dto) {
-		OrdenServicioDTO testDto = new OrdenServicioDTO();
-		testDto.setNumber_order(numOrder);
-		Optional<OrdenServicio> optionalTest = repository.findByNumOrder(testDto.getNumber_order());
-		if (!optionalTest.isPresent()) {
-			throw new ResourceNotFoundException(String.format("El código %s no se encuentra registrado", numOrder));
-		}
-		OrdenServicio test = optionalTest.get();
-		test.setNumOrder(dto.getNumber_order());
-		repository.save(test);
 	}
 }
