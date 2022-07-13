@@ -7,11 +7,11 @@ public class DetalleOrdenServicioDTO {
 	
 	private long id;
 	
-	private OrdenServicioDTO id_orden_servicio;
+	private OrdenServicioDTO orden_servicio;
 	
 	private float cantidad;
 		
-	private ProductoDTO codigo_producto;
+	private ProductoDTO producto;
 	
 	private String descripcion;
 	
@@ -31,6 +31,6 @@ public class DetalleOrdenServicioDTO {
 
 	private String descripcion_diagnostico_tecnico;
 
-	private EstadoOrdenServicioDTO id_estado_orden_servcio;
+	private EstadoOrdenServicioDTO estado_orden_servcio;
 	
 }
