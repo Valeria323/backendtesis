@@ -22,6 +22,8 @@ public class ProductoDTO {
 	private long controlaStock;
 
 	private long aplicaIva;
+	
+	private EmpresaDTO empresa;
 
 	
 }
