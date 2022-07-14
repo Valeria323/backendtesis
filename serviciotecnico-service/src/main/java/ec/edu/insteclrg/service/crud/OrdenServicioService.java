@@ -20,7 +20,7 @@ public class OrdenServicioService extends GenericCrudServiceImpl<OrdenServicio, 
 
 	@Override
 	public Optional<OrdenServicio> find(OrdenServicioDTO dto) {
-		return repository.findByNumOrder(dto.getNumero_orden());
+		return repository.findByNumOrden(dto.getNumero_orden());
 	}
 
 	@Override
