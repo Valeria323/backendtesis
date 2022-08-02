@@ -5,6 +5,8 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import ec.edu.insteclrg.common.exception.ResourceNotFoundException;
 import ec.edu.insteclrg.domain.Cliente;
 import ec.edu.insteclrg.dto.ClienteDTO;
 import ec.edu.insteclrg.persistence.ClienteRepository;
@@ -26,9 +28,6 @@ public class ClienteService extends GenericCrudServiceImpl<Cliente, ClienteDTO>{
 	@Override
 	public ClienteDTO mapToDto(Cliente domain) {
 		ClienteDTO clienteDTO = new ClienteDTO();
-		//clientesDTO.setId(domain.getId());
-		//clientesDTO.setNombres(domain.getNombres());
-		//clientesDTO.setApellidos(domain.getApellidos());
 		clienteDTO = modelMapper.map(domain, ClienteDTO.class);
 		return clienteDTO;
 	}
@@ -36,10 +35,17 @@ public class ClienteService extends GenericCrudServiceImpl<Cliente, ClienteDTO>{
 	@Override
 	public Cliente mapToDomain(ClienteDTO dto) {
 		Cliente cliente = new Cliente();
-		//clientes.setId(dto.getId());
-		//clientes.setNombres(dto.getNombres());
-		//clientes.setApellidos(dto.getApellidos());
 		cliente = modelMapper.map(dto, Cliente.class);
 		return cliente;
 	}
+	
+	public void delete(ClienteDTO dto) {
+		Optional<Cliente> optional = repository.findById(dto.getId());
+		if (!optional.isPresent()) {
+			throw new ResourceNotFoundException(String.format("Registro %s no existe en la base de datos", dto));
+		}
+		Cliente cliente = optional.get();
+		repository.delete(cliente);
+	}
+	
 }
