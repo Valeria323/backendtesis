@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ec.edu.insteclrg.common.exception.ResourceNotFoundException;
 import ec.edu.insteclrg.domain.EstadoOrdenServicio;
 import ec.edu.insteclrg.dto.EstadoOrdenServicioDTO;
 import ec.edu.insteclrg.persistence.EstadoOrdenServicioRepository;
@@ -27,8 +28,6 @@ public class EstadoOrdenServicioService  extends GenericCrudServiceImpl<EstadoOr
 	@Override
 	public EstadoOrdenServicioDTO mapToDto(EstadoOrdenServicio domain) {
 		EstadoOrdenServicioDTO estadoordenservicioDTO = new EstadoOrdenServicioDTO();
-		// estadoordenservicioDTO.setId(domain.getId());
-		//estadoordenservicioDTO.setState(domain.getState());
 		estadoordenservicioDTO = modelMapper.map(domain, EstadoOrdenServicioDTO.class);
 		return estadoordenservicioDTO;
 	}
@@ -36,10 +35,16 @@ public class EstadoOrdenServicioService  extends GenericCrudServiceImpl<EstadoOr
 	@Override
 	public EstadoOrdenServicio mapToDomain(EstadoOrdenServicioDTO dto) {
 		EstadoOrdenServicio estadoordenservicio = new EstadoOrdenServicio();
-		// estadoordenservicio.setId(dto.getId());
-		// estadoordenservicio.setState(dto.getState());
 		estadoordenservicio = modelMapper.map(dto, EstadoOrdenServicio.class);
 		return estadoordenservicio;
 	}
-	
+	public void delete(EstadoOrdenServicioDTO dto) {
+		Optional<EstadoOrdenServicio> optional = repository.findById(dto.getId());
+		if (!optional.isPresent()) {
+			throw new ResourceNotFoundException(String.format("Registro %s no existe en la base de datos", dto));
+		}
+		EstadoOrdenServicio estadoordenservicio = optional.get();
+		repository.delete(estadoordenservicio);
+
+	}
 }
