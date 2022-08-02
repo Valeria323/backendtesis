@@ -4,6 +4,8 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import ec.edu.insteclrg.common.exception.ResourceNotFoundException;
 import ec.edu.insteclrg.domain.Provincia;
 import ec.edu.insteclrg.dto.ProvinciaDTO;
 import ec.edu.insteclrg.persistence.ProvinciaRepository;
@@ -30,5 +32,15 @@ public class ProvinciaService extends GenericCrudServiceImpl<Provincia, Provinci
 	@Override
 	public Provincia mapToDomain(ProvinciaDTO dto) {
 		return modelMapper.map(dto, Provincia.class);
+	}
+	public void delete(ProvinciaDTO dto) {
+
+		Optional<Provincia> optional = repository.findById(dto.getId());
+
+		if (!optional.isPresent()) {
+			throw new ResourceNotFoundException(String.format("Registro %s no existe en la base de datos", dto));
+		}
+		Provincia provincia = optional.get();
+		repository.delete(provincia);
 	}
 }
