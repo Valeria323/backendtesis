@@ -4,6 +4,8 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import ec.edu.insteclrg.common.exception.ResourceNotFoundException;
 import ec.edu.insteclrg.domain.FacturaFormaPago;
 import ec.edu.insteclrg.dto.FacturaFormaPagoDTO;
 import ec.edu.insteclrg.persistence.FacturaFormaPagoRepository;
@@ -30,5 +32,15 @@ public class FacturaFormaPagoService extends GenericCrudServiceImpl<FacturaForma
 	@Override
 	public FacturaFormaPago mapToDomain(FacturaFormaPagoDTO dto) {
 		return modelMapper.map(dto,  FacturaFormaPago.class);
+	}
+	public void delete(FacturaFormaPagoDTO dto) {
+
+		Optional<FacturaFormaPago> optional = repository.findById(dto.getId());
+
+		if (!optional.isPresent()) {
+			throw new ResourceNotFoundException(String.format("Registro %s no existe en la base de datos", dto));
+		}
+		FacturaFormaPago facturaformapago = optional.get();
+		repository.delete(facturaformapago );
 	}
 }
