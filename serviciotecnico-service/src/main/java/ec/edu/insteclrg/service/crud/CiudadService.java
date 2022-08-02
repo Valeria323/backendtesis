@@ -5,6 +5,8 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import ec.edu.insteclrg.common.exception.ResourceNotFoundException;
 import ec.edu.insteclrg.domain.Ciudad;
 import ec.edu.insteclrg.dto.CiudadDTO;
 import ec.edu.insteclrg.persistence.CiudadRepository;
@@ -32,5 +34,14 @@ public class CiudadService extends GenericCrudServiceImpl<Ciudad, CiudadDTO> {
 	public Ciudad mapToDomain(CiudadDTO dto) {
 		return modelMapper.map(dto, Ciudad.class);
 	}
-	}
+	
+	public void delete(CiudadDTO dto) {
+		Optional<Ciudad> optional = repository.findById(dto.getId());
+		if (!optional.isPresent()) {
+			throw new ResourceNotFoundException(String.format("Registro %s no existe en la base de datos", dto));
 
+		}
+		Ciudad ciudad = optional.get();
+		repository.delete(ciudad);
+	}
+}
