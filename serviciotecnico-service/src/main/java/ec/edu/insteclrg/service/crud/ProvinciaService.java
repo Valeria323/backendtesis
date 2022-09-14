@@ -13,34 +13,39 @@ import ec.edu.insteclrg.service.GenericCrudServiceImpl;
 
 @Service
 public class ProvinciaService extends GenericCrudServiceImpl<Provincia, ProvinciaDTO> {
-	
-	@Autowired
-	private ProvinciaRepository repository;
 
-	private ModelMapper modelMapper = new ModelMapper();
+  @Autowired
+  private ProvinciaRepository repository;
 
-	@Override
-	public Optional<Provincia> find(ProvinciaDTO dto) {
-		return repository.findById(dto.getId());
-	}
+  private ModelMapper modelMapper = new ModelMapper();
 
-	@Override
-	public ProvinciaDTO mapToDto(Provincia domain) {
-		return modelMapper.map(domain, ProvinciaDTO.class);
-	}
+  @Override
+  public Optional<Provincia> find(ProvinciaDTO dto) {
+    return repository.findById(dto.getId());
+  }
 
-	@Override
-	public Provincia mapToDomain(ProvinciaDTO dto) {
-		return modelMapper.map(dto, Provincia.class);
-	}
-	public void delete(ProvinciaDTO dto) {
+  @Override
+  public ProvinciaDTO mapToDto(Provincia domain) {
+    System.out.println("*********service dto**************");
+    System.out.println(modelMapper.map(domain, ProvinciaDTO.class));
+    return modelMapper.map(domain, ProvinciaDTO.class);
+  }
 
-		Optional<Provincia> optional = repository.findById(dto.getId());
+  @Override
+  public Provincia mapToDomain(ProvinciaDTO dto) {
+    System.out.println("*********service domain**************");
+    System.out.println(modelMapper.map(dto, Provincia.class));
+    return modelMapper.map(dto, Provincia.class);
+  }
 
-		if (!optional.isPresent()) {
-			throw new ResourceNotFoundException(String.format("Registro %s no existe en la base de datos", dto));
-		}
-		Provincia provincia = optional.get();
-		repository.delete(provincia);
-	}
+  public void delete(ProvinciaDTO dto) {
+
+    Optional<Provincia> optional = repository.findById(dto.getId());
+
+    if (!optional.isPresent()) {
+      throw new ResourceNotFoundException(String.format("Registro %s no existe en la base de datos", dto));
+    }
+    Provincia provincia = optional.get();
+    repository.delete(provincia);
+  }
 }

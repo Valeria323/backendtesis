@@ -5,22 +5,22 @@ import lombok.Data;
 @Data
 public class ClienteDTO {
 
-	private long id;
+  private long id;
 
-	private String nombres;
+  private String nombres;
 
-	private String apellidos;
-	
-	private long dni;
+  private String apellidos;
 
-	private String direccion;
+  private long dni;
 
-	private Long telefono;
-	
-	private long celular;
+  private String direccion;
 
-	private String email;
+  private Long telefono;
 
-	private String estado;
-	
+  private long celular;
+
+  private String email;
+
+  private boolean is_active;
+
 }

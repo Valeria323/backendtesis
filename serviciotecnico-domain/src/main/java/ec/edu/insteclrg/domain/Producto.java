@@ -16,38 +16,40 @@ import lombok.Setter;
 @Entity
 public class Producto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(updatable = false, nullable = false)
-	private long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(updatable = false, nullable = false)
+  private long id;
 
-	@Column(nullable = false, unique = true)
-	private String codigo;
+  @Column(nullable = false, unique = true)
+  private String codigo;
 
-	@Column(nullable = false)
-	private String nombre;
+  @Column(nullable = false)
+  private String nombre;
 
-	@Column(nullable = false)
-	private long precioventa;
+  @Column(nullable = false)
+  private double precioventa;
 
-	@Column(nullable = false)
-	private long stockMin;
-	
-	@Column(nullable = false)
-	private long stockMax;
+  @Column(nullable = false)
+  private long stockMin;
 
-	@Column(nullable = false)
-	private long stock;
-	
-	@Column(nullable = false)
-	private long controlaStock;
+  @Column(nullable = false)
+  private long stockMax;
 
-	@Column(nullable = false)
-	private long aplicaIva ;
-	
-	@ManyToOne
-	@JoinColumn(name = "empres_id")
-	private Empresa empresa;
-		
+  @Column(nullable = false)
+  private long stock;
+
+  @Column(nullable = false)
+  private long controlaStock;
+
+  @Column(nullable = false)
+  private double aplicaIva;
+
+  @Column(nullable = false)
+  private String imagen;
+
+  @ManyToOne
+  @JoinColumn(name = "empres_id")
+  private Empresa empresa;
 
 }

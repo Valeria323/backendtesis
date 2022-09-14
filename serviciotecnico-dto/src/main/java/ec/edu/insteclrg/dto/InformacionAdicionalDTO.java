@@ -5,12 +5,10 @@ import lombok.Data;
 @Data
 public class InformacionAdicionalDTO {
 
-	private long id;
+  private long id;
 
-	private String nombre;
+  private String nombre;
 
-	private String descripcion;
+  private String descripcion;
 
-	public String getNombre;
-	
 }

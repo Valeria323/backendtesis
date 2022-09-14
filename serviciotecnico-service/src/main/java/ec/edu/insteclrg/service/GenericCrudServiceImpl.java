@@ -15,40 +15,42 @@ import ec.edu.insteclrg.common.ApiException;
 @Service
 public abstract class GenericCrudServiceImpl<DOMAIN, DTO> implements GenericCrudService<DOMAIN, DTO> {
 
-	@Autowired
-	private JpaRepository<DOMAIN, Long> repository;
+  @Autowired
+  private JpaRepository<DOMAIN, Long> repository;
 
-	@Override
-	public void save(DTO dto) {
-		Optional<DOMAIN> optional = find(dto);
-		if (!optional.isPresent()) {
-			DOMAIN domainObject = mapToDomain(dto);
-			repository.save(domainObject);
-		} else {
-			throw new ApiException(String.format("Registro %s ya existe en el sistema", dto));
-		}
-	}
+  @Override
+  public void save(DTO dto) {
+    Optional<DOMAIN> optional = find(dto);
+    if (!optional.isPresent()) {
+      DOMAIN domainObject = mapToDomain(dto);
+      repository.save(domainObject);
+    } else {
+      throw new ApiException(String.format("Registro %s ya existe en el sistema", dto));
+    }
+  }
 
-	@Override
-	public void update(DTO dto) {
-		Optional<DOMAIN> optional = find(dto);
-		if (!optional.isPresent()) {
-			throw new ApiException(String.format("Registro %s no existe en el sistema", dto));
-		} else {
-			DOMAIN domainObject = mapToDomain(dto);
-			repository.save(domainObject);
-		}
-	}
+  @Override
+  public void update(DTO dto) {
+    Optional<DOMAIN> optional = find(dto);
+    if (!optional.isPresent()) {
+      throw new ApiException(String.format("Registro %s no existe en el sistema", dto));
+    } else {
+      DOMAIN domainObject = mapToDomain(dto);
+      repository.save(domainObject);
+    }
+  }
 
-	@Override
-	public List<DTO> findAll(DTO dto) {
-		DOMAIN domain = mapToDomain(dto);
-		ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues().withIgnorePaths("id");
-		List<DOMAIN> objList = repository.findAll(Example.of(domain, matcher));
-		return objList.stream().map(obj -> mapToDto(obj)).collect(Collectors.toList());
-	}
+  @Override
+  public List<DTO> findAll(DTO dto) {
+    DOMAIN domain = mapToDomain(dto);
+    ExampleMatcher matcher = ExampleMatcher.matching().withIgnoreNullValues().withIgnorePaths("id");
+    List<DOMAIN> objList = repository.findAll(Example.of(domain, matcher));
+    System.out.println("*******genenric ****************");
+    System.out.println(objList);
+    return objList.stream().map(obj -> mapToDto(obj)).collect(Collectors.toList());
+  }
 
-	@Override
-	public abstract DOMAIN mapToDomain(DTO dto);
+  @Override
+  public abstract DOMAIN mapToDomain(DTO dto);
 
 }

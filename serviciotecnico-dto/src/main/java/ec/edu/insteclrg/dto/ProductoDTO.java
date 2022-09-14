@@ -5,25 +5,26 @@ import lombok.Data;
 @Data
 public class ProductoDTO {
 
-	private long id;
+  private long id;
 
-	private String codigo;
+  private String codigo;
 
-	private String nombre;
+  private String nombre;
 
-	private long precioVenta;
+  private double precioventa;
 
-	private long stockMin;
+  private long stockMin;
 
-	private long stockMax;
+  private long stockMax;
 
-	private long stock;
+  private long stock;
 
-	private long controlaStock;
+  private long controlaStock;
 
-	private long aplicaIva;
-	
-	private EmpresaDTO empresa;
+  private double aplicaIva;
 
-	
+  private EmpresaDTO empresa;
+
+  private String imagen;
+
 }
